@@ -15,22 +15,14 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data>
 ) {
-    console.log("api called")
+    console.log("api called ")
+    console.log(req.body)
 
-    const text = `They are hashed instead of encrypted
-    - hash functions take in text and produced a fixed length hashed text
-    - it is one way, therefore you can't get the original text from the hashed value
-    - passwords are salted to prevent the hacker from using a cracked password to access other passwords
-        - salting includes adding a string to the password
-        - as hashing will produce the same hashed string for the same input, the salt randomises it 
-    - brute force hacking and dictionary attacks
-    - recommendations from experts
-        - update software
-            - they usually fix and exploits 
-        - use a password manager
-            - it will generate very strong passwords that you do not need to remember.
-            - will probably also inform you if your password was involved in a breach 
-        - strong password`;
+    if(JSON.parse(req.body).length == 0){
+      console.log("no uh")
+    }else{
+      console.log("you got it chief")
+    }
 
     // const chatCompletion = await openai.createChatCompletion({
     //     model: "gpt-3.5-turbo",
@@ -75,7 +67,7 @@ export default async function handler(
 
     timeout(4000)
 
-    
-    res.status(200).json(fs)
+    console.log("returning new data, meaning GPT call")
+    res.status(200).json({cards: [...fs], prompt:"something ahhh"})
 
 }

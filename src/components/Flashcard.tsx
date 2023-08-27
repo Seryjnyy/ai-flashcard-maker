@@ -3,7 +3,7 @@ import PanoramaFishEyeIcon from '@mui/icons-material/PanoramaFishEye';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useEffect, useState } from 'react';
 
-type BookProps = {
+type FlashcardProps = {
     id : number,
     selected: boolean,
     front: string,
@@ -11,7 +11,7 @@ type BookProps = {
     onSelect: (id : number, selected : boolean) => void;
   };
 
-export default function Flashcard({id, selected, front, back, onSelect} : BookProps){
+export default function Flashcard({id, selected, front, back, onSelect} : FlashcardProps){
 
     const handleSelect = () => {
         onSelect(id, !selected);
